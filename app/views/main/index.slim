@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading Download .csv file
+      .panel-body = link_to "CSV", download_path(format: "csv"), class: 'btn btn-primary btn-sm'
+
+  .col-md-6 = form_tag csv_path, { method: :put, multipart: true }
+    .panel.panel-default
+      .panel-heading Upload .csv file
+      .panel-body
+        .form-group = file_field_tag :file
+        = submit_tag 'Submit', class: 'btn btn-primary btn-sm', data: { disable_with: 'Waiting...' }

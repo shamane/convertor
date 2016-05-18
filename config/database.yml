@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: convertor_development
+  pool: 5
+  username: postgres
+  password: rootroot
+  host: 127.0.0.1
+  port: 4039

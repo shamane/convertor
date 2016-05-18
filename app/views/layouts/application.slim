@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Slim Examples
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    br
+    .container
+      - if flash.present?
+        .alerts-group
+          - flash.each do |type, message|
+            .alert.alert-info
+              span.close data-dismiss="alert" &times;
+              = message
+
+      == yield

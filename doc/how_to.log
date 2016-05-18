@@ -1,0 +1,9 @@
+
+CSVParser.new('/home/vzl/projects/convertor/lib/poro/data.csv')
+
+Parsed::CsvFile.count
+(1.3ms)  SELECT COUNT(*) FROM "parsed_csv_files"
+=> 4486
+
+
+    
