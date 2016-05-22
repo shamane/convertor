@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415073630) do
+ActiveRecord::Schema.define(version: 20160522194410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auctions", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "parsed_csv_files", force: :cascade do |t|
     t.string   "period",                             null: false
@@ -25,4 +34,15 @@ ActiveRecord::Schema.define(version: 20160415073630) do
 
   add_index "parsed_csv_files", ["period"], name: "index_parsed_csv_files_on_period", unique: true, using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "password"
+    t.string   "email"
+    t.integer  "auction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["auction_id"], name: "index_users_on_auction_id", using: :btree
+
+  add_foreign_key "users", "auctions"
 end

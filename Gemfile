@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 gem 'rails', '4.2.5.2'
+
 gem 'pg', '0.18.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,19 +14,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
-group :development, :test do
-  gem 'byebug'
-end
-
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'pry-rails', '0.3.4'
-end
-
-#group :libv8 do
+# gem 'byebug'
+# group :libv8 do
 #  gem 'libv8', '~> 3.11.8'
-#end
+# end
 
 gem 'execjs'
 gem 'therubyracer', '~> 0.11.0beta5', platform: :ruby
@@ -45,7 +37,8 @@ gem 'flay', '2.6.1'
 gem 'flog', '4.3.2'
 gem 'reek', '3.10.1'
 gem 'roodi', '5.0.0'
-gem 'coco', '0.14.0'
+# gem 'coco', '0.14.0'
+gem 'simplecov', '0.11.2', require: false
 gem 'cane', '3.0.0'
 gem 'ruby-lint', '2.1.0'
 gem 'churn', '1.0.2'
@@ -69,3 +62,30 @@ gem 'rails-erd', '1.4.7'
 gem 'lograge', '0.3.6'
 gem 'log_file', '0.0.3'
 gem 'xray-rails', '0.1.21'
+
+gem 'bugsnag', '4.1.0'			# contribulator
+gem 'newrelic_rpm', '3.15.2.317'	# contribulator
+gem 'derailed', '0.1.0'			# bundle exec derailed bundle:mem
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  gem 'pry-rails', '0.3.4'
+
+  group :test do
+    gem 'minitest', '5.8.4'
+    gem 'test-unit', '3.1.9'
+    gem 'rspec', '2.14.0'
+    gem 'rspec-rails', '2.14.0'
+    gem 'shoulda', '3.5.0'
+    gem 'shoulda-matchers', '2.5.0'
+    gem 'factory_girl_rails', '4.3.0', require: false
+    gem 'faker', '1.2.0'
+    gem 'populator', '1.0.0'
+    gem 'parallel_tests', '2.5.0'
+    gem 'fuubar', '1.3.3'
+    gem 'database_cleaner', '1.2.0'
+    gem 'spring', '1.7.1'
+    gem 'spring-commands-rspec', '1.0.4'
+  end
+end
